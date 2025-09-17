@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="left">
+  <img src="https://github.com/inline-arc/Mira/blob/mira/public/images/orb2.png" alt="Mira Logo" width="60" />
+  <h1>Mira: AI NFT Marketplace on Avalanche L1</h1>
+</div>
+
+## Overview
+
+Mira is a next-generation marketplace specialized in artificial intelligence generated NFTs (Non-Fungible Tokens) built on the Avalanche L1 blockchain. The platform enables creators, collectors, and investors to mint, trade, and discover unique AI-generated digital assets with unprecedented speed and minimal transaction costs.
+
+<div style="clear: both;"></div>
+
+## Demo
+
+[![Mira Platform Demo](https://img.youtube.com/vi/RNxZAzS6Gm0/0.jpg)](https://youtu.be/RNxZAzS6Gm0)
+
+*Click the image above to watch a demonstration of the Mira platform.*
+
+## Key Features
+
+- **AI-Generated NFT Creation**: Seamlessly generate and mint unique digital assets using state-of-the-art AI models
+- **Avalanche L1 Integration**: Leverage the speed, security, and low transaction costs of the Avalanche network
+- **Creator Verification**: Robust authentication system for verified AI artists and creators
+- **Advanced Discovery**: Sophisticated search algorithms to help collectors find unique digital assets
+- **Smart Contract Security**: Thoroughly audited smart contracts ensuring transaction integrity
+
+## Technology Stack
+
+Mira is built on a robust technical foundation:
+
+- **Blockchain**: Avalanche L1
+- **Smart Contracts**: Solidity
+- **Frontend**: React.js, Web3.js
+- **Backend**: wagmi, ether.js
+- **AI Integration**: Huggingface
+- **IPFS Integration**: Pinata
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js v16+
+- Yarn package manager
+- MetaMask or other Avalanche-compatible wallet
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repository
+git clone https://github.com/inline-arc/Mira.git
+
+# Navigate to project directory
+cd Mira
+
+# Install dependencies
+npm install
+
+# Start development server on bun init bun
+bun init
+
+# Start sever on bun
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Architecture
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Mira employs a modular architecture designed for scalability:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **User Interface Layer**: Responsive, intuitive interface for all user interactions
+2. **API Layer**: RESTful and GraphQL endpoints handling data exchanges
+3. **AI Processing Layer**: Machine learning pipelines for content generation and verification
+4. **Blockchain Layer**: Smart contracts and blockchain interactions
+5. **Storage Layer**: Hybrid storage solution combining IPFS and traditional databases
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+We welcome contributions from the developer community. Please review our [Contributing Guidelines](CONTRIBUTING.md) before submitting pull requests.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2025 Mira, Inc. All rights reserved.
