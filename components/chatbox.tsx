@@ -124,13 +124,13 @@ function MarkdownContent({ text }: { text: string }) {
               <div className="relative w-full max-w-md rounded-lg overflow-hidden border border-[#3a3545]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
-                  src={segment.src} 
-                  alt={segment.alt || "Generated image"} 
+                  src={(segment as any).src} 
+                  alt={(segment as any).alt || "Generated image"} 
                   className="w-full h-auto object-contain"
                 />
               </div>
-              {segment.alt && (
-                <span className="text-xs text-gray-400 mt-2">{segment.alt}</span>
+              {(segment as any).alt && (
+                <span className="text-xs text-gray-400 mt-2">{(segment as any).alt}</span>
               )}
             </div>
           );

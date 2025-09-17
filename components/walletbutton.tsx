@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useAuth, useAuthState, useModal as useCampModal, CampModal, useConnect } from "@campnetwork/origin/react";
 import { useModal, ParaModal, OAuthMethod } from "@getpara/react-sdk";
 import { useState, useEffect, useRef } from 'react';
+import { useAccount } from 'wagmi';
 
 interface WalletButtonProps {
   onClick?: () => void;
@@ -23,9 +24,8 @@ export default function WalletButton({
   const { authenticated } = useAuthState();
   const { openModal: openCampModal } = useCampModal();
   const { connect, disconnect } = useConnect();
-  const { address } = useAuth();
+  const { address } = useAccount();
   
-  // Get real wallet address instead of random
   const displayAddress = address ? 
     `${address.slice(0, 6)}...${address.slice(-4)}` : 'Connected';
   

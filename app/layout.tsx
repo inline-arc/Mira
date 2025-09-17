@@ -3,7 +3,7 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { ThemeProvider } from "@/components/theme-provider"
-import '@/styles/global-utils.css';
+//import '@/styles/global-utils.css';
 import Providers from "./api/generate-image/provider"
 
 export const metadata: Metadata = {

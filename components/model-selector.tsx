@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { Eye, Globe, FileText, Brain, ChevronDown, ChevronUp, SlidersHorizontal, Info } from "lucide-react"
 import { motion } from "framer-motion"
-import { updateModelProvider } from "@/chat/provider"
+import { updateModelProvider } from "../chat/provider"
 
 type ModelType = {
   name: string

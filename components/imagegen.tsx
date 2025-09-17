@@ -77,7 +77,7 @@ export function ImageGen({ state, setState, onGenerateImage, selectedModel }: Im
       };
       
       const upload = await pinata.upload.public.file(imageFile, {
-        pinataMetadata: {
+        metadata: {
           name: metadata.name,
         },
       });

@@ -9,11 +9,11 @@ export const mintNFT = async (origin: any, file: any, meta: any) => {
   
   try {
     // Step 1: Clean the metadata completely by manually creating a new clean object
-    const cleanMeta = {
-      name: String(meta.name || ""),
-      description: String(meta.description || ""),
-      properties: {}
-    };
+      const cleanMeta = {
+        name: String(meta.name || ""),
+        description: String(meta.description || ""),
+        properties: {} as Record<string, any>
+      };
     
     // Step 2: Add properties one by one to ensure they're clean
     if (meta.properties) {
@@ -87,7 +87,7 @@ export const createSafeMeta = (name: string, description: string, properties: Re
   const safeMeta = {
     name: String(name || ""),
     description: String(description || ""),
-    properties: {}
+    properties: {} as Record<string, any>
   };
   
   // Manually copy each property to ensure they're clean

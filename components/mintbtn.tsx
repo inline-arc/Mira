@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useAccount, useConnect, useWriteContract } from "wagmi";
-import { contractABI, contractAddress } from "@/abi";
+import { contractABI, contractAddress } from "@../../abi";
 import { PinataSDK } from "pinata";
 import { dataURLtoFile } from "../utils/imageUtils";
 import { Wallet } from "lucide-react";
@@ -94,7 +94,8 @@ export function MintButton({
       // Upload the image to IPFS
       console.log("Uploading to IPFS...");
       const uploadResult = await pinata.upload.public.file(file, {
-        filename: `${prompt?.substring(0, 20) || "ai-image"}-${Date.now()}.png`,
+        metadata: {
+           name: `${prompt?.substring(0, 20) || "ai-image"}-${Date.now()}.png`,}
       });
 
       // Log the full upload result for inspection

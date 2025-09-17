@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter, useParams } from 'next/navigation';
 import { ArrowLeft, Copy, ExternalLink, Clock, Tag, Info, Database, Fingerprint, Link } from 'lucide-react';
-import Sidebar from '../../../../components/sidebar';
-import { contractAddress } from './../../../../abi';
+import Sidebar from '@/components/sidebar';
+import { contractAddress } from '../../../../abi';
 import Image from 'next/image';
 
 interface NFTMetadata {

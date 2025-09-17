@@ -6,7 +6,7 @@ import ChatInput from "./chatinput"
 import { ModelDropdown } from "./modeldropdown"
 import { FileDropArea } from "./file-drop-area"
 import ChatBox from "./chatbox"
-import { updateModelProvider } from "@/chat/provider"
+import { updateModelProvider } from "../chat/provider"
 import Image from "next/image"
 import { DEFAULT_SUGGESTIONS, AISuggestion } from "./ai-suggestions"
 
@@ -38,8 +38,8 @@ export function ChatUI() {
     imageUrl: null,
   })
   
-  const modelButtonRef = useRef<HTMLDivElement>(null)
-  const modelSelectorRef = useRef<HTMLDivElement>(null)
+  const modelButtonRef = useRef<HTMLDivElement>(null!)
+  const modelSelectorRef = useRef<HTMLDivElement>(null!)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   // Scroll to bottom whenever messages change

@@ -4,8 +4,11 @@ import { NextRequest, NextResponse } from 'next/server';
 // Initialize the HuggingFace client
 const client = new InferenceClient(process.env.HF_TOKEN);
 
-// Map of image generation models
-const imageModels = {
+// Define valid model keys as a type
+type ModelKeys = "Stable-diffusion-xl-base-1.0" | "default";
+
+// Map of image generation models with proper typing
+const imageModels: Record<ModelKeys, string> = {
   "Stable-diffusion-xl-base-1.0": "stabilityai/stable-diffusion-xl-base-1.0",
   "default": "stabilityai/stable-diffusion-xl-base-1.0" // Use stable diffusion as default
 };
@@ -17,7 +20,11 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     console.log('Request body:', body);
     
-    const { prompt, steps = 5, model = "default" } = body;
+    const { prompt, steps = 5, model: requestedModel = "default" } = body;
+    // Type-safe model selection
+    const model = (Object.keys(imageModels).includes(requestedModel) 
+      ? requestedModel 
+      : "default") as ModelKeys;
     
     if (!prompt || typeof prompt !== 'string') {
       console.log('Invalid prompt:', prompt);
@@ -31,16 +38,15 @@ export async function POST(req: NextRequest) {
     
     console.log('Generating image with prompt:', prompt);
     console.log('Using model:', model);
-    console.log('HF_TOKEN available:', !!process.env.HF_TOKEN);
-    
-    // Select the appropriate image model
-    const selectedModel = imageModels[model] || imageModels.default;
+  
+    // Select the appropriate image model with type safety
+    const selectedModel = imageModels[model];
     console.log('Selected model:', selectedModel);
     
     try {
       // Call the HuggingFace API to generate an image
       console.log('Calling HuggingFace API...');
-      const imageBlob = await client.textToImage({
+      const imageResult = await client.textToImage({
         provider: "auto",
         model: selectedModel,
         inputs: prompt,
@@ -53,14 +59,29 @@ export async function POST(req: NextRequest) {
       });
       
       console.log('HuggingFace API call successful, processing image...');
+      console.log('Response type:', typeof imageResult);
       
-      // Convert Blob to Buffer and then to base64
-      const arrayBuffer = await imageBlob.arrayBuffer();
-      const buffer = Buffer.from(arrayBuffer);
-      const base64 = buffer.toString('base64');
-      const dataUrl = `data:image/png;base64,${base64}`;
+      let dataUrl: string;
       
-      console.log('Image processed successfully, base64 length:', base64.length);
+      // Handle different response types
+      if (typeof imageResult === 'string') {
+        // If it's a string (base64 or data URL)
+        dataUrl = imageResult.startsWith('data:') 
+          ? imageResult 
+          : `data:image/png;base64,${imageResult}`;
+        console.log('Used string response directly');
+      } else if (imageResult && typeof imageResult === 'object' && 'arrayBuffer' in imageResult) {
+        // If it's a Blob-like object, convert it to base64
+        const arrayBuffer = await (imageResult as any).arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
+        const base64 = buffer.toString('base64');
+        dataUrl = `data:image/png;base64,${base64}`;
+        console.log('Processed Blob to base64, length:', base64.length);
+      } else {
+        throw new Error(`Unexpected response type: ${typeof imageResult}`);
+      }
+      
+      console.log('Image processed successfully');
       
       return NextResponse.json({ 
         success: true, 

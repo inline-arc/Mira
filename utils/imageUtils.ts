@@ -23,16 +23,13 @@ export function createCleanFileObject(originalFile: File): File {
   }
 }
 
-/**
- * Creates a completely clean metadata object with no references to the original
- * @param metadata Original metadata to clean
- */
+
 export function createCleanMetadata(metadata: any): any {
   // Start with essential properties only
   const cleanMeta = {
     name: String(metadata?.name || "AI Generated Image"),
     description: String(metadata?.description || ""),
-    properties: {}
+    properties: {} as Record<string, string>
   };
   
   // Only add simple, primitive properties
@@ -56,9 +53,7 @@ export function createCleanMetadata(metadata: any): any {
   return cleanMeta;
 }
 
-/**
- * Prepare file and metadata for minting, ensuring all BigInt and non-serializable values are handled
- */
+
 export function prepareImageForMinting(file: File, metadata: any) {
   // Create clean file object
   const preparedFile = createCleanFileObject(file);
