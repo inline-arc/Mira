@@ -10,6 +10,9 @@ Mira is a next-generation marketplace specialized in artificial intelligence gen
 <div style="clear: both;"></div>
 
 ## Demo
+Live Deploy: https://mira-rosy.vercel.app/
+
+<img width="1429" height="732" alt="image" src="https://github.com/user-attachments/assets/b6eaf354-e5c4-461b-a8ea-9c5e5e6e431a" />
 
 [![Mira Platform Demo](https://img.youtube.com/vi/RNxZAzS6Gm0/0.jpg)](https://youtu.be/RNxZAzS6Gm0)
 
