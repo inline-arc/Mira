@@ -10,7 +10,7 @@ import {
   okxWallet,
 } from "@getpara/evm-wallet-connectors";
 import { CampProvider } from "@campnetwork/origin/react";
-import { testnet } from "@/utils/chain";
+import { testnet } from "@/../utils/chain";
 import "@getpara/react-sdk/styles.css";
 
 const queryClient = new QueryClient();

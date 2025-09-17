@@ -1,5 +1,5 @@
 {
-  "name": "t3-chat-clone",
+  "name": "mira",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -54,8 +54,8 @@
     "openai": "^5.7.0",
     "pinata": "^2.4.9",
     "radix-ui": "^1.4.2",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-markdown": "^10.1.0",
     "solana-agent-kit": "^2.0.7",
     "tailwind-merge": "^2.2.1",
@@ -67,6 +67,7 @@
     "zustand": "^5.0.7"
   },
   "devDependencies": {
+    "@types/bs58": "^5.0.0",
     "@types/next": "^8.0.7",
     "@types/node": "^20",
     "@types/react": "19.1.8",

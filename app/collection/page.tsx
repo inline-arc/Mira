@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Search, Image as ImageIcon, ExternalLink, RefreshCw } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import Sidebar from '@/components/sidebar';
-import CopyButton from '@/components/CopyButton';
-import WalletButton from '@/components/walletbutton';
+import Sidebar from './../../components/sidebar';
+import CopyButton from '../../components/CopyButton';
+import WalletButton from '../../components/walletbutton';
 import { useAuthState } from "@campnetwork/origin/react";
-import { MintButton } from '@/components/mintbtn';
+import { MintButton } from '../../components/mintbtn';
 
 // Simple file interface matching Pinata response
 interface PinataFile {
